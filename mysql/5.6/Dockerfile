@@ -3,15 +3,13 @@ MAINTAINER Jari Kolehmainen <jari.kolehmainen@digia.com>
 
 # Install packages
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server-5.6 pwgen
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server-5.6 pwgen ruby
 
 # Remove pre-installed database
 RUN rm -rf /var/lib/mysql/*
 
 # Add MySQL configurations
-ADD my-1.cnf /etc/mysql/my-1.cnf
-ADD my-2.cnf /etc/mysql/my-2.cnf
-ADD my-4.cnf /etc/mysql/my-4.cnf
+ADD my.cnf.erb /etc/mysql/my.cnf.erb
 ADD mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
 
 # Add MySQL scripts
