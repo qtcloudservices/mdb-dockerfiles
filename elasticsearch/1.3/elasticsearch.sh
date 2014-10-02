@@ -1,13 +1,6 @@
 #!/bin/bash
 MDB_SIZE=${MDB_SIZE:-1}
 NAME=elasticsearch
-DEFAULT=/etc/default/$NAME
-
-# The following variables can be overwritten in $DEFAULT
-
-# Run Elasticsearch as this user ID and group ID
-ES_USER=elasticsearch
-ES_GROUP=elasticsearch
 
 # The first existing directory is used for JAVA_HOME (if JAVA_HOME is not defined in $DEFAULT)
 JDK_DIRS="/usr/lib/jvm/java-7-oracle /usr/lib/jvm/java-7-openjdk /usr/lib/jvm/java-7-openjdk-amd64/ /usr/lib/jvm/java-7-openjdk-armhf /usr/lib/jvm/java-7-openjdk-i386/ /usr/lib/jvm/default-java"
@@ -60,13 +53,6 @@ CONF_FILE=$CONF_DIR/elasticsearch.yml
 
 # Maximum number of VMA (Virtual Memory Areas) a process can own
 MAX_MAP_COUNT=262144
-
-# End of variables that can be overwritten in $DEFAULT
-
-# overwrite settings from default file
-if [ -f "$DEFAULT" ]; then
-	. "$DEFAULT"
-fi
 
 # Define other required variables
 PID_FILE=/var/run/$NAME.pid
