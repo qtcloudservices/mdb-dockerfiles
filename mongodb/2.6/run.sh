@@ -2,10 +2,9 @@
 if [ ! -f /.mongodb_password_set ]; then
 	/set_mongodb_password.sh
 fi
-if [ ! -f /.configure_mongo.sh ]; then
-  /set_mongodb_password.sh
-fi
+
 /configure_mongo.sh
+
 if [ ! -f /data/db/mongod.lock ]; then
   exec /usr/bin/mongod --auth --journal
 else

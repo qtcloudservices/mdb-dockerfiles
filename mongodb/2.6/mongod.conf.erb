@@ -1,0 +1,11 @@
+net:
+  maxIncomingConnections: <%= ENV['MDB_SIZE'].to_i * 128 %>
+
+security:
+  authorization: true
+
+storage:
+  smallFiles: true
+  quota:
+    enforced: true
+    maxFilesPerDB: <%= ENV['MDB_SIZE'].to_i * 4 %>
