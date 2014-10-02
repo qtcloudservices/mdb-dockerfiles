@@ -18,7 +18,6 @@ ADD mysql-connector-java-5.1.28-bin.jar /usr/share/elastcisearch/plugins/jdbc/
 
 ENV ELASTICSEARCH_USER admin
 
-ADD elasticsearch_default /etc/default/elasticsearch
 ADD elasticsearch.sh /elasticsearch.sh
 ADD logging.yml /etc/elasticsearch/logging.yml
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
