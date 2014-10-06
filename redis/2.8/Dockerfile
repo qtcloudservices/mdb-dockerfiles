@@ -17,5 +17,7 @@ RUN chmod +x /*.sh
 ENV REDIS_MODE **None**
 ENV REDIS_TIMEOUT 0
 
+RUN chown redis:redis -R /etc/redis
+USER redis
 EXPOSE 6379
 CMD ["/run.sh"]

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f /.redis_password_set ]; then
+if [ -f /etc/redis/.redis_password_set ]; then
 	echo "Redis password already set!"
 	exit 0
 fi
@@ -12,7 +12,7 @@ touch /etc/redis/redis_default.conf
 echo "requirepass $PASS" >> /etc/redis/redis_default.conf
 
 echo "=> Done!"
-touch /.redis_password_set
+touch /etc/redis/.redis_password_set
 
 echo "========================================================================"
 echo "You can now connect to this Redis server using:"
