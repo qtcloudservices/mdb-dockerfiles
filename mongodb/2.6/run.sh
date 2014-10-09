@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f /.mongodb_password_set ]; then
+if [ ! -f /data/db/.mongodb_password_set ]; then
 	/set_mongodb_password.sh
 fi
 

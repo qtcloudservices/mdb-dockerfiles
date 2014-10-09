@@ -10,8 +10,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /data/db
+RUN chown mongodb -R /data/db
 
 ADD mongod.conf.erb /etc/mongod.conf.erb
+RUN chown mongodb /etc/mongod.conf
 
 # Add run scripts
 ADD run.sh /run.sh
@@ -19,6 +21,7 @@ ADD set_mongodb_password.sh /set_mongodb_password.sh
 ADD configure_mongo.sh /configure_mongo.sh
 RUN chmod 755 ./*.sh
 
+USER mongodb
 EXPOSE 27017
 
 CMD ["/run.sh"]
