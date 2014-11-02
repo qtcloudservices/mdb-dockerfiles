@@ -8,16 +8,16 @@ fi
 PASS=${REDIS_PASS:-$(pwgen -s 32 1)}
 _word=$( [ ${REDIS_PASS} ] && echo "preset" || echo "random" )
 echo "=> Securing redis with a ${_word} password"
-touch /etc/redis/redis_default.conf
-echo "requirepass $PASS" >> /etc/redis/redis_default.conf
+touch /etc/redis/redis_password.conf
+echo "requirepass $PASS" >> /etc/redis/redis_password.conf
 
 echo "=> Done!"
 touch /etc/redis/.redis_password_set
 
 echo "========================================================================"
-echo "You can now connect to this Redis server using:"
+echo ""
+echo "    You can now connect to this Redis server using:"
 echo ""
 echo "    redis-cli -a $PASS -h <host> -p <port>"
 echo ""
-echo "Please remember to change the above password as soon as possible!"
 echo "========================================================================"
