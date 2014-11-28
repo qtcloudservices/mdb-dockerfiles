@@ -18,6 +18,7 @@ RUN chmod +x /*.sh
 RUN chown redis:redis -R /etc/redis
 
 VOLUME ["/var/lib/redis"]
+RUN chown redis:redis -R /etc/redis
 
 USER redis
 EXPOSE 6379
