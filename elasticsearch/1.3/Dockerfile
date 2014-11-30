@@ -17,6 +17,8 @@ RUN /usr/share/elasticsearch/bin/plugin --install jdbc --url http://xbib.org/rep
 ADD mysql-connector-java-5.1.28-bin.jar /usr/share/elastcisearch/plugins/jdbc/
 ADD postgresql-9.3-1102.jdbc41.jar /usr/share/elastcisearch/plugins/jdbc/
 
+RUN /usr/share/elasticsearch/bin/plugin --install com.github.richardwilly98.elasticsearch/elasticsearch-river-mongodb/2.0.2
+
 ENV ELASTICSEARCH_USER admin
 
 ADD elasticsearch.sh /elasticsearch.sh
