@@ -21,6 +21,8 @@ ADD set_mongodb_password.sh /set_mongodb_password.sh
 ADD configure_mongo.sh /configure_mongo.sh
 RUN chmod 755 ./*.sh
 
+ENV MDB_SIZE 1
+
 USER mongodb
 EXPOSE 27017
 

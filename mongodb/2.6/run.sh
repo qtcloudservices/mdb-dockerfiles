@@ -5,9 +5,11 @@ fi
 
 /configure_mongo.sh
 
+OPLOG_SIZE=$(($MDB_SIZE * 256))
+
 if [ ! -f /data/db/mongod.lock ]; then
-  exec /usr/bin/mongod --auth --journal
+  exec /usr/bin/mongod --auth --journal --master --oplogSize=$OPLOG_SIZE
 else
   rm /data/db/mongod.lock
-  mongod --dbpath /data/db --repair && exec /usr/bin/mongod --auth --journal
+  mongod --dbpath /data/db --repair && exec /usr/bin/mongod --auth --journal --master --oplogSize=$OPLOG_SIZE
 fi
