@@ -7,9 +7,8 @@ fi
 
 OPLOG_SIZE=$(($MDB_SIZE * 256))
 
-if [ ! -f /data/db/mongod.lock ]; then
-  exec /usr/bin/mongod --auth --journal --master --oplogSize=$OPLOG_SIZE
-else
+if [ -f /data/db/mongod.lock ]; then
   rm /data/db/mongod.lock
-  mongod --dbpath /data/db --repair && exec /usr/bin/mongod --auth --journal --master --oplogSize=$OPLOG_SIZE
 fi
+
+exec /usr/bin/mongod --auth --journal --master --oplogSize=$OPLOG_SIZE
