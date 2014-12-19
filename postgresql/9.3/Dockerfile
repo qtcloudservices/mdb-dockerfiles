@@ -20,6 +20,8 @@ RUN chmod 755 /*.sh
 
 ENV MDB_SIZE 1
 
+VOLUME ["/var/lib/postgresql", "/var/log/postgresql"]
+
 EXPOSE 5432
 USER postgres
 CMD ["/run.sh"]
