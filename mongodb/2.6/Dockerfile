@@ -23,6 +23,8 @@ RUN chmod 755 ./*.sh
 
 ENV MDB_SIZE 1
 
+VOLUME ["/data/db"]
+
 USER mongodb
 EXPOSE 27017
 
