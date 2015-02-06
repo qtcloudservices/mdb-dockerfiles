@@ -2,6 +2,10 @@
 
 VOLUME_HOME="/var/lib/mysql"
 
+if [ ! -f "/dev/stderr.err" ]; then
+  ln -s /dev/stderr /dev/stderr.err
+fi
+
 if [[ ! -f $VOLUME_HOME/ibdata1 ]]; then
     echo "=> An empty or uninitialized MySQL volume is detected in $VOLUME_HOME"
     echo "=> Installing MySQL ..."
