@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "=> Configuring redis as a LRU cache (volatile-ttl)"
 REDIS_CONFIG=/etc/redis/redis.conf
-MDB_SIZE=${MDB_INSTANCE_SIZE:-1}
-REDIS_MAXMEMORY=$((MDB_SIZE * 256))
+MDB_SIZE=${MDB_SIZE:-1}
+export REDIS_MAXMEMORY=$((MDB_SIZE * 256))
 erb /etc/redis/redis.conf.erb > $REDIS_CONFIG
 
 if [ ! -f /.redis_password_set ]; then
