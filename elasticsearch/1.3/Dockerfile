@@ -12,10 +12,10 @@ RUN curl http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN /usr/share/elasticsearch/bin/plugin --install jdbc --url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-river-jdbc/1.3.0.4/elasticsearch-river-jdbc-1.3.0.4-plugin.zip
+RUN /usr/share/elasticsearch/bin/plugin --install jdbc --url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-river-jdbc/1.3.4.7/elasticsearch-river-jdbc-1.3.4.7-plugin.zip
 
-ADD mysql-connector-java-5.1.28-bin.jar /usr/share/elastcisearch/plugins/jdbc/
-ADD postgresql-9.3-1102.jdbc41.jar /usr/share/elastcisearch/plugins/jdbc/
+ADD mysql-connector-java-5.1.28-bin.jar /usr/share/elasticsearch/plugins/jdbc/
+ADD postgresql-9.3-1102.jdbc41.jar /usr/share/elasticsearch/plugins/jdbc/
 
 ENV ELASTICSEARCH_USER admin
 
