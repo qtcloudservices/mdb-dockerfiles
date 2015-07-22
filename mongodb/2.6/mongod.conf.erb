@@ -2,10 +2,12 @@ net:
   maxIncomingConnections: <%= ENV['MDB_SIZE'].to_i * 128 %>
 
 security:
-  authorization: true
+  authorization: enabled
 
 storage:
   smallFiles: true
+  journal:
+    enabled: true
   quota:
     enforced: true
     maxFilesPerDB: <%= ENV['MDB_SIZE'].to_i * 4 %>

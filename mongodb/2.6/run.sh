@@ -11,4 +11,4 @@ if [ -f /data/db/mongod.lock ]; then
   rm /data/db/mongod.lock
 fi
 
-exec /usr/bin/mongod --auth --journal --master --oplogSize=$OPLOG_SIZE
+exec /usr/bin/mongod -f /etc/mongod.conf --master --oplogSize=$OPLOG_SIZE
